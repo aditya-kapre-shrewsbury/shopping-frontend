@@ -1,4 +1,11 @@
 <h1>Todays weather!</h1>
 
 <h2>Feels like : {{weather.feelsLikeInF}}</h2>
-<h2>Condition : {{weather.condition}}</h2>
+<h2>Condition : {{weather.condition | uppercase}}</h2>
+
+<div>
+    <label>
+        Condition : 
+        <input [(ngModel)]="weather.condition" placeholder="condition" />
+    </label>
+</div>
