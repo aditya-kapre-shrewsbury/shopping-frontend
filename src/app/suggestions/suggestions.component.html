@@ -6,3 +6,13 @@
         </li>
     </ul>
 </div>
+<div *ngIf="suggestions!==undefined && suggestions.length > 3; 
+            else lessSuggestions"> 
+    There are MORE than 3 suggestions
+</div>
+
+<ng-template #lessSuggestions>
+    <div>
+        There are LESS than 3 suggestions
+    </div>
+</ng-template>
