@@ -5,11 +5,13 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { WeatherComponent } from './weather/weather.component';
 import { FormsModule } from '@angular/forms';
+import { SuggestionsComponent } from './suggestions/suggestions.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    WeatherComponent
+    WeatherComponent,
+    SuggestionsComponent
   ],
   imports: [
     BrowserModule,
