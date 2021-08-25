@@ -1,8 +1,11 @@
 <h3>Suggestions</h3>
 <div>
     <ul>
-        <li *ngFor="let suggestion of suggestions">
-                {{suggestion.name}}, ${{suggestion.price}}
+        <li *ngFor="let suggestion of suggestions"
+            [class.selected]="suggestion === selectedSuggestion"
+            (click)="onSelect(suggestion)"
+            style="cursor: pointer;" >
+            {{suggestion.name}}, ${{suggestion.price}}
         </li>
     </ul>
 </div>
@@ -16,3 +19,7 @@
         There are LESS than 3 suggestions
     </div>
 </ng-template>
+
+<div *ngIf="selectedSuggestion">
+    <h4>Suggestion {{selectedSuggestion.name | uppercase}} is selected</h4>
+</div>
