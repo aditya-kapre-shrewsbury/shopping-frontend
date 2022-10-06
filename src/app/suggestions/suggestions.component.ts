@@ -19,6 +19,8 @@ export class SuggestionsComponent implements OnInit {
 
   selectedSuggestion?: Suggestion;
 
+  sugg: Sugg | undefined;
+
   constructor(private http: HttpClient) { 
   }
 
@@ -33,7 +35,17 @@ export class SuggestionsComponent implements OnInit {
   makeCall(): void {
     console.log("going to make http call")
     this.http.get<Sugg>("http://localhost:9090/v1/suggestions/14226")
-    .subscribe();
+    .subscribe(data => {
+      this.sugg = {
+      id: data.id,
+      suggestions: data.suggestions
+    }
+    this.callBackFunction();
+  });
+  }
+
+  callBackFunction() {
+    console.log("data retrieved id=%s", this.sugg?.id)
   }
 
 }
