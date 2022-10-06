@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Suggestion } from '../suggestion';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-suggestions',
@@ -18,7 +19,7 @@ export class SuggestionsComponent implements OnInit {
 
   selectedSuggestion?: Suggestion;
 
-  constructor() { 
+  constructor(private http: HttpClient) { 
   }
 
   ngOnInit(): void {
@@ -26,5 +27,18 @@ export class SuggestionsComponent implements OnInit {
 
   onSelect(selectedSuggestion: Suggestion): void {
     this.selectedSuggestion = selectedSuggestion;
+    this.makeCall();
   }
+
+  makeCall(): void {
+    console.log("going to make http call")
+    this.http.get<Sugg>("http://localhost:9090/v1/suggestions/14226")
+    .subscribe();
+  }
+
+}
+
+export interface Sugg {
+  id: string;
+  suggestions: string | null
 }
