@@ -3,9 +3,9 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { WeatherComponent } from './weather/weather.component';
+import { WeatherComponent } from './weather/components/weather.component';
 import { FormsModule } from '@angular/forms';
-import { SuggestionsComponent } from './suggestions/suggestions.component';
+import { SuggestionsComponent } from './suggestions/components/suggestions.component';
 import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
